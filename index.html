@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>El Cocinillas</title>
   <style>
     :root {
@@ -33,13 +33,15 @@
     body {
       background: linear-gradient(180deg, var(--bg-color) 0%, var(--bg-gradient-end) 100%);
       color: var(--text-main);
+      /* dvh asegura el alto real visible en móviles descontando barras de navegación */
       height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      padding: 12px;
-      overflow: hidden; /* Cero scroll en móvil */
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)) 12px;
+      overflow: hidden; /* Cero scroll */
     }
 
     .container {
@@ -54,12 +56,12 @@
 
     header {
       text-align: center;
-      padding-top: 6px;
+      padding-top: 2px;
       width: 100%;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 900;
       color: var(--text-main);
       text-transform: uppercase;
@@ -68,23 +70,23 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
-    /* Selector más recortado */
+    /* Selector recortado */
     .selector-box {
       background-color: rgba(0, 51, 170, 0.6);
       border: 2px solid var(--accent-orange);
       border-radius: 12px;
-      padding: 6px 10px;
-      margin: 6px auto;
-      width: 65%; /* Ancho más compacto */
+      padding: 5px 10px;
+      margin: 4px auto;
+      width: 65%;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     label {
       display: block;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -97,15 +99,15 @@
       color: var(--text-main);
       border: 1px solid var(--border-blue);
       border-radius: 8px;
-      padding: 6px;
-      font-size: 1rem;
+      padding: 5px;
+      font-size: 0.95rem;
       font-weight: 800;
       outline: none;
       text-align: center;
       text-align-last: center;
       appearance: none;
       -webkit-appearance: none;
-      background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff5500" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff5500" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
       background-repeat: no-repeat;
       background-position: right 6px center;
     }
@@ -116,14 +118,14 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       width: 100%;
-      margin: 6px 0;
+      margin: 4px 0;
     }
 
     .member-card {
       background: var(--card-bg-gradient);
       border: 1.5px solid var(--border-blue);
       border-radius: 12px;
-      padding: 10px 4px;
+      padding: 8px 4px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -133,42 +135,42 @@
     }
 
     .member-name {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       white-space: nowrap;
       letter-spacing: 0.5px;
     }
 
     .member-value {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 900;
       color: #ffffff;
       white-space: nowrap;
     }
 
     .unit {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--accent-orange);
       font-weight: 800;
       margin-left: 2px;
     }
 
-    /* Caja de Total más recortada */
+    /* Caja de Total recortada */
     .total-card {
       background: linear-gradient(135deg, var(--black-accent) 0%, #001d4a 100%);
       border: 2px solid var(--accent-orange);
       border-radius: 12px;
       padding: 8px 12px;
       text-align: center;
-      width: 68%; /* Ancho más compacto */
+      width: 68%;
       box-shadow: 0 0 15px rgba(255, 85, 0, 0.3);
-      margin: 6px auto;
+      margin: 4px auto;
     }
 
     .total-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--accent-orange);
@@ -178,20 +180,21 @@
     }
 
     .total-value {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       font-weight: 900;
       color: #ffffff;
       line-height: 1;
       white-space: nowrap;
     }
 
-    /* Footer con firma */
+    /* Footer garantizado visible */
     footer {
       width: 100%;
       text-align: center;
-      padding-top: 8px;
-      padding-bottom: 4px;
+      padding-top: 6px;
+      padding-bottom: 2px;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
+      margin-top: 2px;
     }
 
     .signature {
@@ -200,6 +203,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      display: block;
     }
 
     .signature a {
@@ -222,7 +226,7 @@
       <h1>EL COCINILLAS</h1>
     </header>
 
-    <!-- Selector (Recortado) -->
+    <!-- Selector -->
     <div class="selector-box">
       <label for="product-select">PRODUCTO</label>
       <select id="product-select" onchange="calculateAmounts()">
@@ -248,13 +252,13 @@
       </div>
     </div>
 
-    <!-- Total a Cocer (Recortado) -->
+    <!-- Total a Cocer -->
     <div class="total-card">
       <div class="total-label">Total a Cocer</div>
       <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.1rem; color: var(--accent-orange);">g</span></div>
     </div>
 
-    <!-- Firma -->
+    <!-- Firma visible -->
     <footer>
       <div class="signature">
         Desarrollado por <a href="https://www.instagram.com/fran_giga/" target="_blank" rel="noopener noreferrer">fran_giga</a>

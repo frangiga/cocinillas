@@ -10,7 +10,7 @@
       --bg-color: #0b2545;
       --bg-gradient-end: #134074;
       
-      /* Elementos y botones en azul eléctrico */
+      /* Botones y elementos en azul eléctrico */
       --card-bg-gradient: linear-gradient(145deg, #0033aa, #0055ff);
       --border-blue: #3388ff;
       
@@ -30,38 +30,41 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Cero scroll absoluto */
       background: linear-gradient(180deg, var(--bg-color) 0%, var(--bg-gradient-end) 100%);
       color: var(--text-main);
-      /* dvh asegura el alto real visible en móviles descontando barras de navegación */
-      height: 100vh;
-      height: 100dvh;
+    }
+
+    body {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)) 12px;
-      overflow: hidden; /* Cero scroll */
+      padding: 12px;
+      /* Margen de seguridad para la barra inferior de Chrome en móviles */
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
     }
 
     .container {
       width: 100%;
-      max-width: 420px;
-      height: 100%;
+      max-width: 380px;
+      max-height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
     }
 
     header {
       text-align: center;
-      padding-top: 2px;
       width: 100%;
     }
 
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 900;
       color: var(--text-main);
       text-transform: uppercase;
@@ -70,13 +73,12 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
-    /* Selector recortado */
+    /* Selector ajustado */
     .selector-box {
       background-color: rgba(0, 51, 170, 0.6);
       border: 2px solid var(--accent-orange);
       border-radius: 12px;
       padding: 5px 10px;
-      margin: 4px auto;
       width: 65%;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
@@ -118,7 +120,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       width: 100%;
-      margin: 4px 0;
     }
 
     .member-card {
@@ -144,7 +145,7 @@
     }
 
     .member-value {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 900;
       color: #ffffff;
       white-space: nowrap;
@@ -157,20 +158,19 @@
       margin-left: 2px;
     }
 
-    /* Caja de Total recortada */
+    /* Caja de Total */
     .total-card {
       background: linear-gradient(135deg, var(--black-accent) 0%, #001d4a 100%);
       border: 2px solid var(--accent-orange);
       border-radius: 12px;
-      padding: 8px 12px;
+      padding: 6px 12px;
       text-align: center;
-      width: 68%;
+      width: 65%;
       box-shadow: 0 0 15px rgba(255, 85, 0, 0.3);
-      margin: 4px auto;
     }
 
     .total-label {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--accent-orange);
@@ -180,21 +180,19 @@
     }
 
     .total-value {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-weight: 900;
       color: #ffffff;
       line-height: 1;
       white-space: nowrap;
     }
 
-    /* Footer garantizado visible */
+    /* Footer con garantía de visibilidad en Chrome */
     footer {
       width: 100%;
       text-align: center;
       padding-top: 6px;
-      padding-bottom: 2px;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
-      margin-top: 2px;
     }
 
     .signature {
@@ -255,10 +253,10 @@
     <!-- Total a Cocer -->
     <div class="total-card">
       <div class="total-label">Total a Cocer</div>
-      <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.1rem; color: var(--accent-orange);">g</span></div>
+      <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.05rem; color: var(--accent-orange);">g</span></div>
     </div>
 
-    <!-- Firma visible -->
+    <!-- Firma -->
     <footer>
       <div class="signature">
         Desarrollado por <a href="https://www.instagram.com/fran_giga/" target="_blank" rel="noopener noreferrer">fran_giga</a>

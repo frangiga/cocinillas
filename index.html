@@ -6,12 +6,11 @@
   <title>El Cocinillas</title>
   <style>
     :root {
-      /* Fondo azulón en lugar de fondo oscuro/negro */
+      /* Fondo azulón */
       --bg-color: #0b2545;
       --bg-gradient-end: #134074;
       
       /* Elementos y botones en azul eléctrico */
-      --card-bg: #0044cc;
       --card-bg-gradient: linear-gradient(145deg, #0033aa, #0055ff);
       --border-blue: #3388ff;
       
@@ -69,23 +68,23 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
-    /* Selector compacto no ajustado al ancho */
+    /* Selector más recortado */
     .selector-box {
       background-color: rgba(0, 51, 170, 0.6);
       border: 2px solid var(--accent-orange);
       border-radius: 12px;
-      padding: 8px 12px;
-      margin: 8px auto;
-      width: 75%;
+      padding: 6px 10px;
+      margin: 6px auto;
+      width: 65%; /* Ancho más compacto */
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     label {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -98,17 +97,17 @@
       color: var(--text-main);
       border: 1px solid var(--border-blue);
       border-radius: 8px;
-      padding: 8px;
-      font-size: 1.1rem;
+      padding: 6px;
+      font-size: 1rem;
       font-weight: 800;
       outline: none;
       text-align: center;
       text-align-last: center;
       appearance: none;
       -webkit-appearance: none;
-      background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff5500" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff5500" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
       background-repeat: no-repeat;
-      background-position: right 8px center;
+      background-position: right 6px center;
     }
 
     /* Grilla de miembros familiares */
@@ -156,20 +155,20 @@
       margin-left: 2px;
     }
 
-    /* Caja de Total compacta */
+    /* Caja de Total más recortada */
     .total-card {
       background: linear-gradient(135deg, var(--black-accent) 0%, #001d4a 100%);
       border: 2px solid var(--accent-orange);
-      border-radius: 14px;
-      padding: 10px 16px;
+      border-radius: 12px;
+      padding: 8px 12px;
       text-align: center;
-      width: 80%;
+      width: 68%; /* Ancho más compacto */
       box-shadow: 0 0 15px rgba(255, 85, 0, 0.3);
       margin: 6px auto;
     }
 
     .total-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--accent-orange);
@@ -179,14 +178,14 @@
     }
 
     .total-value {
-      font-size: 2.2rem;
+      font-size: 1.9rem;
       font-weight: 900;
       color: #ffffff;
       line-height: 1;
       white-space: nowrap;
     }
 
-    /* Footer con firma estricta en 1 línea */
+    /* Footer con firma */
     footer {
       width: 100%;
       text-align: center;
@@ -223,7 +222,7 @@
       <h1>EL COCINILLAS</h1>
     </header>
 
-    <!-- Selector (Producto en Mayúsculas y Opciones en Mayúsculas) -->
+    <!-- Selector (Recortado) -->
     <div class="selector-box">
       <label for="product-select">PRODUCTO</label>
       <select id="product-select" onchange="calculateAmounts()">
@@ -233,7 +232,7 @@
       </select>
     </div>
 
-    <!-- Casilleros Nombres en Mayúsculas -->
+    <!-- Casilleros Nombres -->
     <div class="family-grid">
       <div class="member-card">
         <div class="member-name">FRAN</div>
@@ -249,10 +248,10 @@
       </div>
     </div>
 
-    <!-- Total a Cocer -->
+    <!-- Total a Cocer (Recortado) -->
     <div class="total-card">
       <div class="total-label">Total a Cocer</div>
-      <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.2rem; color: var(--accent-orange);">g</span></div>
+      <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.1rem; color: var(--accent-orange);">g</span></div>
     </div>
 
     <!-- Firma -->

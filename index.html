@@ -6,15 +6,21 @@
   <title>El Cocinillas</title>
   <style>
     :root {
-      --bg-color: #030d22;
-      --card-bg: #0033aa;
-      --accent-blue: #0066ff;
+      /* Fondo azulón en lugar de fondo oscuro/negro */
+      --bg-color: #0b2545;
+      --bg-gradient-end: #134074;
+      
+      /* Elementos y botones en azul eléctrico */
+      --card-bg: #0044cc;
+      --card-bg-gradient: linear-gradient(145deg, #0033aa, #0055ff);
+      --border-blue: #3388ff;
+      
+      /* Naranja vivo y acentos */
       --accent-orange: #ff5500;
       --accent-orange-bright: #ff3300;
+      --black-accent: #051020;
       --text-main: #ffffff;
-      --text-muted: #a0c4ff;
-      --black-accent: #020712;
-      --border-color: #0055ff;
+      --text-muted: #8da9c4;
     }
 
     * {
@@ -26,7 +32,7 @@
     }
 
     body {
-      background-color: var(--bg-color);
+      background: linear-gradient(180deg, var(--bg-color) 0%, var(--bg-gradient-end) 100%);
       color: var(--text-main);
       height: 100vh;
       display: flex;
@@ -34,7 +40,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px;
-      overflow: hidden; /* Cero scroll */
+      overflow: hidden; /* Cero scroll en móvil */
     }
 
     .container {
@@ -60,18 +66,18 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       white-space: nowrap;
-      text-shadow: 0 0 10px rgba(0, 102, 255, 0.6);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     /* Selector compacto no ajustado al ancho */
     .selector-box {
-      background-color: var(--card-bg);
+      background-color: rgba(0, 51, 170, 0.6);
       border: 2px solid var(--accent-orange);
       border-radius: 12px;
       padding: 8px 12px;
       margin: 8px auto;
-      width: 75%; /* Ancho reducido */
-      box-shadow: 0 4px 12px rgba(255, 85, 0, 0.2);
+      width: 75%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     label {
@@ -90,14 +96,14 @@
       width: 100%;
       background-color: var(--black-accent);
       color: var(--text-main);
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-blue);
       border-radius: 8px;
       padding: 8px;
       font-size: 1.1rem;
       font-weight: 800;
       outline: none;
       text-align: center;
-      text-align-last: center; /* Forzar centrado en móviles */
+      text-align-last: center;
       appearance: none;
       -webkit-appearance: none;
       background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff5500" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
@@ -115,8 +121,8 @@
     }
 
     .member-card {
-      background: linear-gradient(145deg, #002277, #0044cc);
-      border: 1.5px solid var(--accent-blue);
+      background: var(--card-bg-gradient);
+      border: 1.5px solid var(--border-blue);
       border-radius: 12px;
       padding: 10px 4px;
       text-align: center;
@@ -124,13 +130,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
     }
 
     .member-name {
       font-size: 0.85rem;
       font-weight: 800;
-      color: var(--text-muted);
+      color: #ffffff;
       margin-bottom: 4px;
       white-space: nowrap;
       letter-spacing: 0.5px;
@@ -146,18 +152,18 @@
     .unit {
       font-size: 0.75rem;
       color: var(--accent-orange);
-      font-weight: 700;
+      font-weight: 800;
       margin-left: 2px;
     }
 
     /* Caja de Total compacta */
     .total-card {
-      background: linear-gradient(135deg, var(--black-accent) 0%, #001133 100%);
+      background: linear-gradient(135deg, var(--black-accent) 0%, #001d4a 100%);
       border: 2px solid var(--accent-orange);
       border-radius: 14px;
       padding: 10px 16px;
       text-align: center;
-      width: 80%; /* Ancho reducido */
+      width: 80%;
       box-shadow: 0 0 15px rgba(255, 85, 0, 0.3);
       margin: 6px auto;
     }
@@ -180,13 +186,13 @@
       white-space: nowrap;
     }
 
-    /* Footer con firma estricta */
+    /* Footer con firma estricta en 1 línea */
     footer {
       width: 100%;
       text-align: center;
       padding-top: 8px;
       padding-bottom: 4px;
-      border-top: 1px solid rgba(0, 102, 255, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .signature {
@@ -217,13 +223,13 @@
       <h1>EL COCINILLAS</h1>
     </header>
 
-    <!-- Selector (No ajustado al ancho / Texto centrado) -->
+    <!-- Selector (Producto en Mayúsculas y Opciones en Mayúsculas) -->
     <div class="selector-box">
-      <label for="product-select">Producto</label>
+      <label for="product-select">PRODUCTO</label>
       <select id="product-select" onchange="calculateAmounts()">
-        <option value="arroz">Arroz</option>
-        <option value="pasta">Pasta</option>
-        <option value="fideua">Fideuá</option>
+        <option value="arroz">ARROZ</option>
+        <option value="pasta">PASTA</option>
+        <option value="fideua">FIDEUÁ</option>
       </select>
     </div>
 
@@ -243,13 +249,13 @@
       </div>
     </div>
 
-    <!-- Total a Cocer (No ajustado al ancho) -->
+    <!-- Total a Cocer -->
     <div class="total-card">
       <div class="total-label">Total a Cocer</div>
       <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.2rem; color: var(--accent-orange);">g</span></div>
     </div>
 
-    <!-- Firma con Link a Instagram -->
+    <!-- Firma -->
     <footer>
       <div class="signature">
         Desarrollado por <a href="https://www.instagram.com/fran_giga/" target="_blank" rel="noopener noreferrer">fran_giga</a>
@@ -258,7 +264,6 @@
   </div>
 
   <script>
-    // Datos exactos extraídos de la tabla
     const dietData = {
       arroz:  { fran: 70, laura: 40, enzo: 40 },
       pasta:  { fran: 60, laura: 50, enzo: 50 },
@@ -279,7 +284,6 @@
       }
     }
 
-    // Inicializar al cargar
     document.addEventListener('DOMContentLoaded', calculateAmounts);
   </script>
 

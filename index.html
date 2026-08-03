@@ -6,15 +6,10 @@
   <title>El Cocinillas</title>
   <style>
     :root {
-      /* Fondo azulón */
       --bg-color: #0b2545;
       --bg-gradient-end: #134074;
-      
-      /* Botones y elementos en azul eléctrico */
       --card-bg-gradient: linear-gradient(145deg, #0033aa, #0055ff);
       --border-blue: #3388ff;
-      
-      /* Naranja vivo y acentos */
       --accent-orange: #ff5500;
       --accent-orange-bright: #ff3300;
       --black-accent: #051020;
@@ -33,7 +28,7 @@
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden; /* Cero scroll absoluto */
+      overflow: hidden; /* Cero scroll */
       background: linear-gradient(180deg, var(--bg-color) 0%, var(--bg-gradient-end) 100%);
       color: var(--text-main);
     }
@@ -42,29 +37,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 12px;
-      /* Margen de seguridad para la barra inferior de Chrome en móviles */
-      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px)) 16px;
     }
 
     .container {
       width: 100%;
-      max-width: 380px;
-      max-height: 100%;
+      max-width: 420px;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      padding: 8px 0;
     }
 
     header {
       text-align: center;
       width: 100%;
+      padding-top: 4px;
     }
 
     h1 {
-      font-size: 1.35rem;
+      font-size: 1.6rem;
       font-weight: 900;
       color: var(--text-main);
       text-transform: uppercase;
@@ -73,22 +67,22 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
-    /* Selector ajustado */
+    /* Selector amplio y respirado */
     .selector-box {
       background-color: rgba(0, 51, 170, 0.6);
       border: 2px solid var(--accent-orange);
-      border-radius: 12px;
-      padding: 5px 10px;
-      width: 65%;
+      border-radius: 14px;
+      padding: 10px 14px;
+      width: 85%;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     label {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -101,32 +95,32 @@
       color: var(--text-main);
       border: 1px solid var(--border-blue);
       border-radius: 8px;
-      padding: 5px;
-      font-size: 0.95rem;
+      padding: 10px;
+      font-size: 1.1rem;
       font-weight: 800;
       outline: none;
       text-align: center;
       text-align-last: center;
       appearance: none;
       -webkit-appearance: none;
-      background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff5500" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff5500" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
       background-repeat: no-repeat;
-      background-position: right 6px center;
+      background-position: right 10px center;
     }
 
     /* Grilla de miembros familiares */
     .family-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
+      gap: 10px;
       width: 100%;
     }
 
     .member-card {
       background: var(--card-bg-gradient);
       border: 1.5px solid var(--border-blue);
-      border-radius: 12px;
-      padding: 8px 4px;
+      border-radius: 14px;
+      padding: 14px 6px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -136,23 +130,23 @@
     }
 
     .member-name {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
       white-space: nowrap;
       letter-spacing: 0.5px;
     }
 
     .member-value {
-      font-size: 1.35rem;
+      font-size: 1.6rem;
       font-weight: 900;
       color: #ffffff;
       white-space: nowrap;
     }
 
     .unit {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       color: var(--accent-orange);
       font-weight: 800;
       margin-left: 2px;
@@ -162,41 +156,41 @@
     .total-card {
       background: linear-gradient(135deg, var(--black-accent) 0%, #001d4a 100%);
       border: 2px solid var(--accent-orange);
-      border-radius: 12px;
-      padding: 6px 12px;
+      border-radius: 14px;
+      padding: 12px 16px;
       text-align: center;
-      width: 65%;
+      width: 85%;
       box-shadow: 0 0 15px rgba(255, 85, 0, 0.3);
     }
 
     .total-label {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--accent-orange);
       font-weight: 900;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
       white-space: nowrap;
     }
 
     .total-value {
-      font-size: 1.7rem;
+      font-size: 2.2rem;
       font-weight: 900;
       color: #ffffff;
       line-height: 1;
       white-space: nowrap;
     }
 
-    /* Footer con garantía de visibilidad en Chrome */
+    /* Footer en la base de la pantalla */
     footer {
       width: 100%;
       text-align: center;
-      padding-top: 6px;
+      padding-top: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .signature {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
@@ -253,7 +247,7 @@
     <!-- Total a Cocer -->
     <div class="total-card">
       <div class="total-label">Total a Cocer</div>
-      <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.05rem; color: var(--accent-orange);">g</span></div>
+      <div class="total-value"><span id="total-qty">0</span> <span style="font-size: 1.2rem; color: var(--accent-orange);">g</span></div>
     </div>
 
     <!-- Firma -->
